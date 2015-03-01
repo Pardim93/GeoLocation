@@ -130,7 +130,7 @@
                                     <action selector="distancia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U95-cd-6wH"/>
                                 </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="400" minimumValue="100" maximumValue="1000" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="wHP-39-eNJ">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="400" minimumValue="100" maximumValue="5000" stepValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="wHP-39-eNJ">
                                 <rect key="frame" x="-47" y="-14" width="94" height="29"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="153" y="28" width="94" height="29"/>

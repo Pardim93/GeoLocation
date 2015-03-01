@@ -45,8 +45,7 @@ MKPointAnnotation *you ;
     [super viewDidLoad];
    
     
-    zoomMap.maximumValue = 500;
-    zoomMap.minimumValue = 100;
+   
     
     // Do any additional setup after loading the view, typically from a nib.
     

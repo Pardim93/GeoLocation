@@ -24,6 +24,23 @@ MKPointAnnotation *pm, *E, *W , *N, *S;
 
 
 MKPointAnnotation *you ;
+- (IBAction)getRight:(id)sender {
+
+
+}
+
+- (IBAction)getDown:(id)sender {
+    [self.locationManager stopUpdatingLocation];
+
+    self.Mapa.userLocation.coordinate = CLLocationCoordinate2DMake(self.Mapa.userLocation.coordinate.latitude -  0.00050 , self.Mapa.userLocation.coordinate.longitude );
+
+}
+
+- (IBAction)getLeft:(id)sender {
+}
+
+- (IBAction)getUp:(id)sender {
+}
 
 - (IBAction)distancia:(id)sender {
    
@@ -54,7 +71,7 @@ MKPointAnnotation *you ;
             S.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude - 0.00050, crnLoc.coordinate.longitude );
             N.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude + 0.00050, crnLoc.coordinate.longitude );
         
-            E.
+            
             
             [_Mapa addAnnotation:E];
             [_Mapa addAnnotation:W];
@@ -83,8 +100,9 @@ MKPointAnnotation *you ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.Mapa.showsUserLocation = YES;
    
-    
+    self.view.backgroundColor = [UIColor blueColor];
    
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -103,8 +121,8 @@ MKPointAnnotation *you ;
     S = [[MKPointAnnotation alloc]init];
     
     
-    you = [[MKPointAnnotation alloc]init];
-    [you setTitle:@"Eu"];
+  //  you = [[MKPointAnnotation alloc]init];
+   // [you setTitle:@"Eu"];
 
     
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -135,9 +153,9 @@ MKPointAnnotation *you ;
     crnLoc = [locations lastObject];
   
 
-    you.coordinate = crnLoc.coordinate;
-    
-    [_Mapa addAnnotation:you];
+ //   you.coordinate = crnLoc.coordinate;
+   
+   // [_Mapa addAnnotation:you];
   //  NSLog(@"%f",[crnLoc distanceFromLocation:MyFirstConstant]);
     
     _lol.text = [NSString stringWithFormat:@"%.2f",[crnLoc distanceFromLocation:MyFirstConstant]];
@@ -155,6 +173,7 @@ MKPointAnnotation *you ;
 
     //Mudar a região atual para visualização de forma animada
     [_Mapa setRegion:region animated:YES ];
+    [manager stopUpdatingLocation];
    
     
 }

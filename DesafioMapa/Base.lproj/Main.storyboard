@@ -117,11 +117,11 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dw-MT-AKY">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Set Location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="338" y="485" width="46" height="30"/>
+                                    <rect key="frame" x="142" y="570" width="87" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="distancia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U95-cd-6wH"/>

@@ -42,6 +42,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="228" y="404" width="197" height="21"/>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="228" y="399" width="197" height="21"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfH-4V-xkh">
                                 <rect key="frame" x="118" y="426" width="77" height="21"/>
@@ -127,6 +130,12 @@
                                     <action selector="distancia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U95-cd-6wH"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="400" minimumValue="100" maximumValue="1000" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="wHP-39-eNJ">
+                                <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="153" y="28" width="94" height="29"/>
+                                </variation>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -137,6 +146,7 @@
                                 <exclude reference="9px-9G-Era"/>
                                 <exclude reference="E2B-ub-Zmu"/>
                                 <exclude reference="0Dw-MT-AKY"/>
+                                <exclude reference="wHP-39-eNJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -151,6 +161,7 @@
                                 <include reference="9px-9G-Era"/>
                                 <include reference="E2B-ub-Zmu"/>
                                 <include reference="0Dw-MT-AKY"/>
+                                <include reference="wHP-39-eNJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -161,6 +172,7 @@
                         <outlet property="latitude" destination="aoa-0K-iqM" id="qJS-JK-Fxz"/>
                         <outlet property="lol" destination="9px-9G-Era" id="eQJ-br-uDg"/>
                         <outlet property="longitude" destination="FEz-35-PaE" id="G8G-Y5-PV1"/>
+                        <outlet property="zoomMap" destination="wHP-39-eNJ" id="eQC-Az-egB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

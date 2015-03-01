@@ -18,9 +18,12 @@
     
     IBOutlet UILabel *altitude;
 
+    __weak IBOutlet UIStepper *maisMenos;
 }
 
-@property (weak, nonatomic) IBOutlet MKMapView *Mapa;
+@property (weak, nonatomic) IBOutlet UIStepper *zoomMap;
+
+@property (retain) IBOutlet MKMapView *Mapa;
 
 @property (retain) CLLocationManager *locationManager;
 

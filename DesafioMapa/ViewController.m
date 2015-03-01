@@ -27,21 +27,26 @@ MKPointAnnotation *you ;
 - (IBAction)distancia:(id)sender {
    
     MyFirstConstant = crnLoc;
-    
+    NSLog(@"%d",(int)zoomMap.value);
+
    MKPointAnnotation *pm = [[MKPointAnnotation alloc]init];
    
     pm.coordinate = MyFirstConstant.coordinate;
+    [pm setTitle:@"Ponto de Partida"];
     [_Mapa addAnnotation:pm];
 
 }
 
-@synthesize locationManager, latitude, longitude, Velocidade, altitude;
+@synthesize locationManager, latitude, longitude, Velocidade, altitude, zoomMap;
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     
-
+    zoomMap.maximumValue = 500;
+    zoomMap.minimumValue = 100;
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -54,6 +59,7 @@ MKPointAnnotation *you ;
     
   
     you = [[MKPointAnnotation alloc]init];
+    [you setTitle:@"Eu"];
 
     
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -85,8 +91,9 @@ MKPointAnnotation *you ;
   
 
     you.coordinate = crnLoc.coordinate;
+    
     [_Mapa addAnnotation:you];
-    NSLog(@"%f",[crnLoc distanceFromLocation:MyFirstConstant]);
+  //  NSLog(@"%f",[crnLoc distanceFromLocation:MyFirstConstant]);
     
     _lol.text = [NSString stringWithFormat:@"%.2f",[crnLoc distanceFromLocation:MyFirstConstant]];
 
@@ -99,7 +106,7 @@ MKPointAnnotation *you ;
     Velocidade.text = [NSString stringWithFormat:@"%.2f m",crnLoc.speed];
     CLLocationCoordinate2D loc = [[locations lastObject] coordinate]; 
    
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc,zoomMap.value, zoomMap.value);
 
     //Mudar a região atual para visualização de forma animada
     [_Mapa setRegion:region animated:YES ];

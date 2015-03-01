@@ -20,7 +20,8 @@ NSArray const *pri;
 CLLocation const *MyFirstConstant;
 CLLocation *crnLoc;
 int boo = -1;
-MKPointAnnotation *pm;
+MKPointAnnotation *pm, *E, *W , *N, *S;
+
 
 MKPointAnnotation *you ;
 
@@ -39,6 +40,45 @@ MKPointAnnotation *you ;
 
 @synthesize locationManager, latitude, longitude, Velocidade, altitude, zoomMap;
 
+- (IBAction)setPlace:(id)sender { //action responsavel por fazer um lugar escolhido
+   UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Definição de lugar"
+    message:@"Você deseja marcar esse lugar?"preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    UIAlertAction* sim = [UIAlertAction actionWithTitle:@"Sim" style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * action) {
+        //   E.coordinate = crnLoc.coordinate;
+          //  int p = crnLoc.coordinate.longitude;
+            E.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude , crnLoc.coordinate.longitude + 0.00050);
+            W.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude , crnLoc.coordinate.longitude - 0.00050);
+            S.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude - 0.00050, crnLoc.coordinate.longitude );
+            N.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude + 0.00050, crnLoc.coordinate.longitude );
+        
+            E.
+            
+            [_Mapa addAnnotation:E];
+            [_Mapa addAnnotation:W];
+            [_Mapa addAnnotation:S];
+            [_Mapa addAnnotation:N];
+
+            
+          
+        }];
+    
+    
+    
+    
+    UIAlertAction* nao = [UIAlertAction actionWithTitle:@"Não" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              }];
+    
+    [alert addAction:sim];
+    [alert addAction:nao];
+    [self presentViewController:alert animated:YES completion:nil];
+
+   
+    
+}
 
 
 - (void)viewDidLoad {
@@ -57,6 +97,12 @@ MKPointAnnotation *you ;
     }
     
   
+    E = [[MKPointAnnotation alloc]init];
+    W = [[MKPointAnnotation alloc]init];
+    N = [[MKPointAnnotation alloc]init];
+    S = [[MKPointAnnotation alloc]init];
+    
+    
     you = [[MKPointAnnotation alloc]init];
     [you setTitle:@"Eu"];
 

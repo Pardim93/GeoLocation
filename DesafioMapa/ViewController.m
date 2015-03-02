@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import <Social/Social.h>
 
 
 
@@ -203,7 +204,22 @@ MKPointAnnotation *you ;
         UIAlertAction* sim1 = [UIAlertAction actionWithTitle:@"Sim" style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * action) {
                                                          
-                                                         
+                                                         if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+                                                         {
+                                                             SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                                                             [tweetSheet setInitialText:@"Tweeting from my own app! :)"];
+                                                             [self presentViewController:tweetSheet animated:YES completion:nil];
+                                                         }
+                                                         else
+                                                         {
+                                                              UIAlertView *alertView = [[UIAlertView alloc]
+                                                                                       initWithTitle:@"Sorry"
+                                                                                       message:@"You can't send a tweet right now, make sure  your device has an internet connection and you haveat least one Twitter account setup"
+                                                                                       delegate:self                                              
+                                                                                       cancelButtonTitle:@"OK"                                                   
+                                                                                       otherButtonTitles:nil];
+                                                             [alertView show];
+                                                         }
              
                                                      }];
         

@@ -22,6 +22,7 @@
 		52CB84081AA3B45F00BB3EC3 /* arrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CB84031AA3B45F00BB3EC3 /* arrowRight.png */; };
 		52CB84091AA3B45F00BB3EC3 /* arrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CB84041AA3B45F00BB3EC3 /* arrowUp.png */; };
 		52CB840A1AA3B45F00BB3EC3 /* center.png in Resources */ = {isa = PBXBuildFile; fileRef = 52CB84051AA3B45F00BB3EC3 /* center.png */; };
+		52CB840C1AA3EDA800BB3EC3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CB840B1AA3EDA800BB3EC3 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		52CB84031AA3B45F00BB3EC3 /* arrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowRight.png; sourceTree = "<group>"; };
 		52CB84041AA3B45F00BB3EC3 /* arrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowUp.png; sourceTree = "<group>"; };
 		52CB84051AA3B45F00BB3EC3 /* center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = center.png; sourceTree = "<group>"; };
+		52CB840B1AA3EDA800BB3EC3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CB840C1AA3EDA800BB3EC3 /* Social.framework in Frameworks */,
 				5276C3971A9F8F0D00198458 /* CoreLocation.framework in Frameworks */,
 				5276C3951A9F8EDC00198458 /* CoreData.framework in Frameworks */,
 				5276C3931A9F8EBD00198458 /* MapKit.framework in Frameworks */,
@@ -100,6 +103,7 @@
 		5276C36B1A9F8DDD00198458 /* DesafioMapa */ = {
 			isa = PBXGroup;
 			children = (
+				52CB840B1AA3EDA800BB3EC3 /* Social.framework */,
 				5276C3961A9F8F0D00198458 /* CoreLocation.framework */,
 				5276C3941A9F8EDC00198458 /* CoreData.framework */,
 				5276C3921A9F8EBD00198458 /* MapKit.framework */,

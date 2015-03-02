@@ -26,24 +26,38 @@ MKPointAnnotation *pm, *E, *W , *N, *S;
 MKPointAnnotation *you ;
 - (IBAction)getRight:(id)sender {
 
-
+    you.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude , you.coordinate.longitude +  0.00010);
+    [self.Mapa  setCenterCoordinate:you.coordinate animated:YES];
 }
 
 - (IBAction)getDown:(id)sender {
-    [self.locationManager stopUpdatingLocation];
 
-    self.Mapa.userLocation.coordinate = CLLocationCoordinate2DMake(self.Mapa.userLocation.coordinate.latitude -  0.00050 , self.Mapa.userLocation.coordinate.longitude );
+    you.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude +  0.00010 , you.coordinate.longitude );
+    [self.Mapa  setCenterCoordinate:you.coordinate animated:YES];
 
 }
 
 - (IBAction)getLeft:(id)sender {
+    
+    you.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude , you.coordinate.longitude -  0.00010);
+    [self.Mapa  setCenterCoordinate:you.coordinate animated:YES];
+
 }
 
+
 - (IBAction)getUp:(id)sender {
+   
+    
+    you.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude +  0.00010 , you.coordinate.longitude );
+    [self.Mapa  setCenterCoordinate:you.coordinate animated:YES];
+
+
+    
 }
 
 - (IBAction)distancia:(id)sender {
-   
+   // CLLocation *youLocation;
+  //  youLocation = you.;
     MyFirstConstant = crnLoc;
     NSLog(@"%d",(int)zoomMap.value);
 
@@ -66,10 +80,13 @@ MKPointAnnotation *you ;
         handler:^(UIAlertAction * action) {
         //   E.coordinate = crnLoc.coordinate;
           //  int p = crnLoc.coordinate.longitude;
-            E.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude , crnLoc.coordinate.longitude + 0.00050);
-            W.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude , crnLoc.coordinate.longitude - 0.00050);
-            S.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude - 0.00050, crnLoc.coordinate.longitude );
-            N.coordinate = CLLocationCoordinate2DMake(crnLoc.coordinate.latitude + 0.00050, crnLoc.coordinate.longitude );
+     
+            
+            
+            E.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude , you.coordinate.longitude + 0.00050);
+            W.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude , you.coordinate.longitude - 0.00050);
+            S.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude - 0.00050, you.coordinate.longitude );
+            N.coordinate = CLLocationCoordinate2DMake(you.coordinate.latitude + 0.00050, you.coordinate.longitude );
         
             
             
@@ -77,7 +94,7 @@ MKPointAnnotation *you ;
             [_Mapa addAnnotation:W];
             [_Mapa addAnnotation:S];
             [_Mapa addAnnotation:N];
-
+            
             
           
         }];
@@ -121,8 +138,8 @@ MKPointAnnotation *you ;
     S = [[MKPointAnnotation alloc]init];
     
     
-  //  you = [[MKPointAnnotation alloc]init];
-   // [you setTitle:@"Eu"];
+   you = [[MKPointAnnotation alloc]init];
+    [you setTitle:@"Eu"];
 
     
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -147,33 +164,63 @@ MKPointAnnotation *you ;
 
 {
     
-
-    
-    
+   
     crnLoc = [locations lastObject];
   
 
- //   you.coordinate = crnLoc.coordinate;
+   you.coordinate = crnLoc.coordinate;
+   // crnLoc.coordinate.longitude = you.coordinate.longitude;
    
-   // [_Mapa addAnnotation:you];
+    [_Mapa addAnnotation:you];
   //  NSLog(@"%f",[crnLoc distanceFromLocation:MyFirstConstant]);
     
     _lol.text = [NSString stringWithFormat:@"%.2f",[crnLoc distanceFromLocation:MyFirstConstant]];
 
-    latitude.text = [NSString stringWithFormat:@"%.8f",crnLoc.coordinate.latitude];
+    latitude.text   = [NSString stringWithFormat:@"%.8f",crnLoc.coordinate.latitude];
     
-    longitude.text = [NSString stringWithFormat:@"%.8f",crnLoc.coordinate.longitude];
+    longitude.text  = [NSString stringWithFormat:@"%.8f",crnLoc.coordinate.longitude];
     
-    altitude.text = [NSString stringWithFormat:@"%.0f m",crnLoc.altitude];
+    altitude.text   = [NSString stringWithFormat:@"%.0f m",crnLoc.altitude];
     
     Velocidade.text = [NSString stringWithFormat:@"%.2f m",crnLoc.speed];
+    
     CLLocationCoordinate2D loc = [[locations lastObject] coordinate]; 
    
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc,zoomMap.value, zoomMap.value);
 
     //Mudar a região atual para visualização de forma animada
+    
     [_Mapa setRegion:region animated:YES ];
-    [manager stopUpdatingLocation];
+    if(you.coordinate.longitude >= W.coordinate.longitude && you.coordinate.longitude <= E.coordinate.longitude && you.coordinate.latitude >= S.coordinate.latitude && you.coordinate.latitude <= N.coordinate.latitude){
+        
+        UIAlertController* chegou = [UIAlertController alertControllerWithTitle:@"Você chegou em seu lugar"
+                                                                       message:@"Você deseja compartilhar esse lugar?"preferredStyle:UIAlertControllerStyleAlert];
+    
+        UIAlertAction* nao1 = [UIAlertAction actionWithTitle:@"Não" style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * action) {
+                                                    }];
+        
+        UIAlertAction* sim1 = [UIAlertAction actionWithTitle:@"Sim" style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * action) {
+                                                         
+                                                         
+             
+                                                     }];
+        
+        
+        [chegou addAction:sim1];
+        [chegou addAction:nao1];
+        
+        [self presentViewController:chegou animated:YES completion:nil];
+
+
+        
+        
+        //NSLog(@"Chegou");
+    }
+    
+    
+  // [manager stopUpdatingLocation];
    
     
 }

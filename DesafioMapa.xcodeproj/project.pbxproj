@@ -103,12 +103,12 @@
 				5276C3961A9F8F0D00198458 /* CoreLocation.framework */,
 				5276C3941A9F8EDC00198458 /* CoreData.framework */,
 				5276C3921A9F8EBD00198458 /* MapKit.framework */,
-				5276C3701A9F8DDD00198458 /* AppDelegate.h */,
 				52CB84011AA3B45F00BB3EC3 /* arrowDown.png */,
 				52CB84021AA3B45F00BB3EC3 /* arrowLeft.png */,
 				52CB84031AA3B45F00BB3EC3 /* arrowRight.png */,
 				52CB84041AA3B45F00BB3EC3 /* arrowUp.png */,
 				52CB84051AA3B45F00BB3EC3 /* center.png */,
+				5276C3701A9F8DDD00198458 /* AppDelegate.h */,
 				5276C3711A9F8DDD00198458 /* AppDelegate.m */,
 				5276C3731A9F8DDD00198458 /* ViewController.h */,
 				5276C3741A9F8DDD00198458 /* ViewController.m */,
@@ -195,6 +195,7 @@
 				TargetAttributes = {
 					5276C3681A9F8DDD00198458 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 3S8R2578UD;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -203,6 +204,7 @@
 					};
 					5276C3811A9F8DDD00198458 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 3S8R2578UD;
 						TestTargetID = 5276C3681A9F8DDD00198458;
 					};
 				};
@@ -402,6 +404,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -413,6 +417,7 @@
 				INFOPLIST_FILE = DesafioMapaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesafioMapa.app/DesafioMapa";
 			};
 			name = Debug;
@@ -421,6 +426,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -428,6 +435,7 @@
 				INFOPLIST_FILE = DesafioMapaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesafioMapa.app/DesafioMapa";
 			};
 			name = Release;
